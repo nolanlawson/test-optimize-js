@@ -1,0 +1,25 @@
+{
+  "name": "test-optimize-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "build": "concurrently --kill-others \"browserify -t bubleify -g uglifyify main.js > main-bundle.js\" \"browserify -t bubleify -g uglifyify worker.js > worker-bundle.js\"",
+    "dev": "concurrently --kill-others \"http-server -p 8080\" \"watchify main.js -o main-bundle.js\" \"watchify worker.js -o worker-bundle.js\""
+  },
+  "keywords": [],
+  "author": "Nolan Lawson <nolan@nolanlawson.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "browserify": "^14.1.0",
+    "concurrently": "^3.3.0",
+    "http-server": "^0.9.0",
+    "uglifyify": "^3.0.4",
+    "watchify": "^3.9.0"
+  },
+  "dependencies": {
+    "marky": "^1.1.3",
+    "optimize-js": "^1.0.3",
+    "promise-worker": "^1.1.1"
+  }
+}
