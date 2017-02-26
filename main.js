@@ -6,7 +6,7 @@ let worker = new PromiseWorker(new Worker('worker-bundle.js'))
 let median = require('median')
 let fetch = window.fetch || require('unfetch')
 let Promise = window.Promise || require('lie')
-let STARTING_SCRIPT = '/* Input your JS here! */\n!function() {\n  console.log(\'hello world\')\n}()'
+let STARTING_SCRIPT = '/* Paste your JS here! */\n!function() {\n  console.log(\'hello world\')\n}()'
 
 let $ = document.querySelector.bind(document)
 let inputTextarea = $('#textarea_input')
