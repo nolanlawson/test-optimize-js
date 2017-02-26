@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "build": "concurrently --kill-others \"browserify -t bubleify -g uglifyify main.js > main-bundle.js\" \"browserify -t bubleify -g uglifyify worker.js > worker-bundle.js\"",
+    "build": "browserify -t bubleify -g uglifyify -p bundle-collapser/plugin main.js -o main-bundle.js && browserify -t bubleify -g uglifyify -p bundle-collapser/plugin worker.js -o worker-bundle.js",
     "dev": "concurrently --kill-others \"http-server -p 8080\" \"watchify main.js -o main-bundle.js\" \"watchify worker.js -o worker-bundle.js\"",
     "test": "standard"
   },
@@ -13,6 +13,8 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "browserify": "^14.1.0",
+    "bubleify": "^0.7.0",
+    "bundle-collapser": "^1.2.1",
     "concurrently": "^3.3.0",
     "http-server": "^0.9.0",
     "standard": "^8.6.0",
