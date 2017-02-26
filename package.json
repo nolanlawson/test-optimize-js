@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "build": "concurrently --kill-others \"browserify -t bubleify -g uglifyify main.js > main-bundle.js\" \"browserify -t bubleify -g uglifyify worker.js > worker-bundle.js\"",
-    "dev": "concurrently --kill-others \"http-server -p 8080\" \"watchify main.js -o main-bundle.js\" \"watchify worker.js -o worker-bundle.js\""
+    "dev": "concurrently --kill-others \"http-server -p 8080\" \"watchify main.js -o main-bundle.js\" \"watchify worker.js -o worker-bundle.js\"",
+    "test": "standard"
   },
   "keywords": [],
   "author": "Nolan Lawson <nolan@nolanlawson.com>",
@@ -14,12 +15,21 @@
     "browserify": "^14.1.0",
     "concurrently": "^3.3.0",
     "http-server": "^0.9.0",
+    "standard": "^8.6.0",
     "uglifyify": "^3.0.4",
     "watchify": "^3.9.0"
   },
   "dependencies": {
+    "lie": "^3.1.1",
     "marky": "^1.1.3",
+    "median": "0.0.2",
     "optimize-js": "^1.0.3",
-    "promise-worker": "^1.1.1"
+    "promise-worker": "^1.1.1",
+    "unfetch": "^2.1.0"
+  },
+  "standard": {
+    "ignore": [
+      "*-bundle.js"
+    ]
   }
 }

@@ -2,24 +2,66 @@
 <html lang="en">
 <head>
   <link rel="preload" href="main-bundle.js" as="script">
-  <link rel="preload" href="worker-bundle.js" as="script">
   <title>Test optimize-js</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
   body {
     max-width: 600px;
-    font-family: Arial, Helvetica, sans-serif;
     margin: 20px auto;
+    font-size: 1.2em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    padding: 10px;
   }
   #textarea_input {
-    width: 100%;
+    width: 90%;
     min-width: 300px;
     min-height: 100px;
     overflow-y: scroll;
+    border: 1px solid #333;
+    margin: 10px auto;
+    display: block;
+    font-size: 0.6em;
+    font-family: Consolas, Monaco, monospace;
   }
   #pre_display {
-    min-height: 50px;
-    width: 100%;
+    min-height: 80px;
+    width: 90%;
     min-width: 300px;
+    background: #ededed;
+    margin: 0 auto;
+  }
+  button {
+    display: block;
+    font-size: 18px;
+    padding: 10px 50px;
+    width: 90%;
+    border: 1px solid #999;
+    background: #333;
+    color: #fafafa;
+    border-radius: 2px;
+    margin: 10px auto;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #666;
+  }
+  .formgroup {
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+  }
+  .formgroup * {
+    margin: 10px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 50%;
+  }
+  input {
+    font-size: 0.8em;
+    max-width: 100px;
+  }
+  select {
+    font-size: 0.8em;
   }
   </style>
 </head>
@@ -27,9 +69,23 @@
 <body>
     <h1>Test optimize-js</h1>
     <p>Input a script, and this page will measure its load time with and without optimize-js.</p>
-    <p>Note that results may vary from browser to browser.</p>
-    <pre id="pre_display"></pre>
+    <p>Note that results will vary from browser to browser!</p>
+    <p>Copy paste your script here:</p>
     <textarea id="textarea_input"></textarea>
+    <pre id="pre_display"></pre>
+    <div class="formgroup">
+      <div>
+        <label for="input_iterations">Iterations:</label>
+        <input id="input_iterations" type="number" value="15"/>
+      </div>
+      <select id="select_common_libs">
+        <option value ="">Common JS libraries...</option>
+        <option value="jquery-3.1.1.min.js">jQuery 3.1.1</option>
+        <option value="lodash-4.17.4.min.js">Lodash 4.17.4</option>
+        <option value="moment-2.17.1.min.js">Moment 2.17.1</option>
+        <option value="three-84.min.js">ThreeJS 84</option>
+      </select>
+    </div>
     <button type="button" id="button_go">Go!</button>
     <script src="main-bundle.js"></script>
 </body>
