@@ -4,9 +4,10 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "build": "browserify -t bubleify -g uglifyify -p bundle-collapser/plugin main.js -o main-bundle.js && browserify -t bubleify -g uglifyify -p bundle-collapser/plugin worker.js -o worker-bundle.js",
-    "dev": "concurrently --kill-others \"http-server -p 8080\" \"watchify main.js -o main-bundle.js\" \"watchify worker.js -o worker-bundle.js\"",
-    "test": "standard"
+    "build": "browserify -t bubleify -g uglifyify -p bundle-collapser/plugin js/main.js -o js/main-bundle.js && browserify -t bubleify -g uglifyify -p bundle-collapser/plugin js/worker.js -o js/worker-bundle.js",
+    "dev": "concurrently --kill-others \"http-server -p 8080\" \"watchify js/main.js -o js/main-bundle.js\" \"watchify js/worker.js -o js/worker-bundle.js\"",
+    "test": "standard",
+    "publish": "bash bin/publish.sh"
   },
   "keywords": [],
   "author": "Nolan Lawson <nolan@nolanlawson.com>",

@@ -2,7 +2,7 @@
 
 let marky = require('marky')
 let PromiseWorker = require('promise-worker')
-let worker = new PromiseWorker(new Worker('worker-bundle.js'))
+let worker = new PromiseWorker(new Worker('js/worker-bundle.js'))
 let median = require('median')
 let fetch = window.fetch || require('unfetch')
 let Promise = window.Promise || require('lie')
