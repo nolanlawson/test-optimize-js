@@ -1,4 +1,4 @@
-/* global Worker, btoa */
+/* global Worker, btoa, requestAnimationFrame */
 
 let marky = require('marky')
 let PromiseWorker = require('promise-worker')
@@ -6,7 +6,7 @@ let worker = new PromiseWorker(new Worker('js/worker-bundle.js'))
 let median = require('median')
 let fetch = window.fetch || require('unfetch')
 let Promise = window.Promise || require('lie')
-let STARTING_SCRIPT = '/* Paste your JS here! */\n!function() {\n  console.log(\'hello world\')\n}()'
+let STARTING_SCRIPT = '/* Paste your JavaScript here! */\n!function() {\n  console.log(\'hello world\')\n}()'
 
 let $ = document.querySelector.bind(document)
 let inputTextarea = $('#textarea_input')
@@ -59,7 +59,7 @@ function testScriptLoadTimeIteration (src) {
   })
 }
 
-function getIterations() {
+function getIterations () {
   let iterations = parseInt(iterationsInput.value)
   if (iterations <= 0) {
     iterations = 1
@@ -72,7 +72,7 @@ function testScriptLoadTime (src) {
   let promise = Promise.resolve()
   let durations = []
 
-  function next() {
+  function next () {
     return testScriptLoadTimeIteration(src).then(duration => {
       durations.push(duration)
     })
@@ -90,7 +90,7 @@ function testScriptLoadTime (src) {
   })
 }
 
-function testScript() {
+function testScript () {
   goButton.disabled = true
   outputPre.innerText = 'Testing...'
 
