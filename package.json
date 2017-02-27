@@ -7,7 +7,7 @@
     "build": "browserify -t bubleify -g uglifyify -p bundle-collapser/plugin js/main.js -o js/main-bundle.js && browserify -t bubleify -g uglifyify -p bundle-collapser/plugin js/worker.js -o js/worker-bundle.js",
     "dev": "concurrently --kill-others \"http-server -p 8080\" \"watchify js/main.js --debug -o js/main-bundle.js\" \"watchify js/worker.js --debug -o js/worker-bundle.js\"",
     "test": "standard",
-    "publish": "npm test && bash bin/publish.sh"
+    "publish-site": "npm test && bash bin/publish-site.sh"
   },
   "keywords": [],
   "author": "Nolan Lawson <nolan@nolanlawson.com>",
