@@ -27,6 +27,7 @@ commonLibsSelect.addEventListener('change', e => {
     return
   }
 
+  goButton.disabled = true
   outputPre.innerText = 'Testing...'
   fetch(url).then(resp => resp.text()).then(src => {
     inputTextarea.value = src
